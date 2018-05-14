@@ -7,7 +7,7 @@ $(document).ready(function() {
 $("#inputbox").attr("autocomplete","off");
 
     
-    $("#inputbox").keyup(function() {
+    $("#inputbox").keydown(function(e) {
         const inputText = $("#inputbox").val();
         const length = inputText.length;
         if(length===1)
@@ -21,7 +21,12 @@ $("#inputbox").attr("autocomplete","off");
             $("#inputbox").css('color', 'green');
         
       else
-        $("#inputbox").css('color', 'red');
+        {$("#inputbox").css('color', 'red');
+          if(!(e.which===8))
+          {e.preventDefault();
+          }
+      }
+
        
 
            
