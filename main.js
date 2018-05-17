@@ -1,10 +1,15 @@
-const s = "the fox jumped over the fence";
+const list=["The fox jumped over the fence","Too many cooks spoil the broth","The early bird catches the worm",
+               "A picture is worth a thousand words","Honesty is the best policy"];
+
+var i=Math.floor((Math.random() * 5) + 1);
+const s = list[i];
 var start=$.now();
 
 
 $(document).ready(function() {
 
 $("#inputbox").attr("autocomplete","off");
+ $("#sentence").text(s);
 
     
     $("#inputbox").keydown(function(e) {
@@ -27,6 +32,8 @@ $("#inputbox").attr("autocomplete","off");
           }
       }
 
+
+
        
 
            
@@ -47,4 +54,16 @@ $("#inputbox").attr("autocomplete","off");
             $("p").text("Your speed =" + speed + "characters/sec");
         }}
     });
+});
+
+
+
+
+
+$("#reset").click(function()
+{
+   $("#inputbox").val("");
+   var i=Math.floor((Math.random() * 5) + 1);
+   const s = list[i];
+   $("#sentence").text(s);
 });
